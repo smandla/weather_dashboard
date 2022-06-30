@@ -3,6 +3,7 @@ var searchInputEl = $("#search_input");
 var directionsEl = $("#initial_stmt");
 var showDetailsEl = $("#show_details");
 var forecastDetailsEl = $("#forecast_details");
+var forecastCardsEl = $("#forecast_cards");
 var cityNameEl = $("#city_name");
 var currentDateEl = $("#current_date");
 var currentTempEl = $("#current_temp");
@@ -81,6 +82,17 @@ const showData = (cityDetails) => {
   }
   if (uvi > 10) {
     currentUvindexEl.css("background-color", "purple");
+  }
+  showForecastDetails(cityDetails.daily.slice(0, 5));
+};
+
+const showForecastDetails = (data) => {
+  console.log(data);
+  for (let i = 0; i < data.length; i++) {
+    let sectionEl = $("<section>").addClass("card").appendTo(forecastCardsEl);
+    let h4El = $("<h4>").text("Date").appendTo(sectionEl);
+    let h5El = $("<h5>").text("temp:").appendTo(sectionEl);
+    let h5_1El = $("<h5>").text("humidity: ").appendTo(sectionEl);
   }
 };
 const init = () => {
