@@ -16,11 +16,27 @@
     </header>
     <aside>
       <section id="search_history">
-        <form>
-          <input type="search" placeholder="Search..." id="search_input" />
+        <form id="form">
+          <input
+            type="search"
+            placeholder="Search for a city..."
+            id="search_input"
+            class="search_input"
+          />
         </form>
       </section>
     </aside>
+    <main>
+      <section id="cityDetails" class="cityDetails">
+        <span id="initial_stmt">
+          <h3>
+            Enter a city in the Search bar or choose one from search history
+          </h3>
+        </span>
+      </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
