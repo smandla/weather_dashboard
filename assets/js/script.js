@@ -2,6 +2,7 @@ var formEl = $("#form");
 var searchInputEl = $("#search_input");
 var directionsEl = $("#initial_stmt");
 var showDetailsEl = $("#show_details");
+var forecastDetailsEl = $("#forecast_details");
 var cityNameEl = $("#city_name");
 var currentDateEl = $("#current_date");
 var currentTempEl = $("#current_temp");
@@ -10,7 +11,7 @@ var currentWindSpeedEl = $("#current_windSpeed");
 var currentUvindexEl = $("#current_uvindex");
 var cityInput;
 var savedData;
-
+var cityHistory = [];
 //moment formatting code
 var formattedDate = moment().format("dddd, MMMM DD, YYYY");
 
@@ -22,7 +23,9 @@ formEl.on("submit", function (e) {
     return;
   }
   cityInput = searchInput;
+  cityHistory.push(cityInput);
   searchInputEl.val("");
+  localStorage.setItem("city_history", JSON.stringify(cityHistory));
 
   getData();
 });
@@ -54,6 +57,7 @@ const showData = (cityDetails) => {
     $(this).remove();
   });
   showDetailsEl.fadeIn(300);
+  forecastDetailsEl.fadeIn(300);
 
   //change values for city name, date, temp, humidity, wind speed, and uv index
   cityNameEl.text(cityInput);
@@ -83,5 +87,6 @@ const init = () => {
   //get local storage items and save to variable
   //show search history from the local storage items
   showDetailsEl.hide();
+  forecastDetailsEl.hide();
 };
 init();

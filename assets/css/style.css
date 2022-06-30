@@ -5,6 +5,7 @@ body {
   background: linear-gradient(#162e4c, #183a7e);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  letter-spacing: 0.1rem;
 }
 h1,
 h2,
@@ -68,6 +69,17 @@ main {
   margin: 0 auto;
   border-radius: 8px;
   /* margin: 10px; */
+}
+.forecast_details {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  padding: 10px;
+  width: 90%;
+  /* margin: 0 auto; */
+  border-radius: 8px;
+
+  /* margin: 10px; */
+  margin: 2rem auto;
 }
 #showDetails {
 }
