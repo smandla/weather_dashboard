@@ -90,7 +90,12 @@ const showForecastDetails = (data) => {
   console.log(data);
   for (let i = 0; i < data.length; i++) {
     let sectionEl = $("<section>").addClass("card").appendTo(forecastCardsEl);
-    let h4El = $("<h4>").text("Date").appendTo(sectionEl);
+    let date = moment.unix(data[i].dt).toDate();
+
+    console.log(date);
+    let h4El = $("<h4>")
+      .text(moment(date).format("MMMM Do, YYYY"))
+      .appendTo(sectionEl);
     let h5El = $("<h5>").text("temp:").appendTo(sectionEl);
     let h5_1El = $("<h5>").text("humidity: ").appendTo(sectionEl);
   }
