@@ -4,6 +4,10 @@ var directionsEl = $("#initial_stmt");
 var showDetailsEl = $("#show_details");
 var cityNameEl = $("#city_name");
 var currentDateEl = $("#current_date");
+var currentTempEl = $("#current_temp");
+var currentHumidityEl = $("#current_humidity");
+var currentWindSpeedEl = $("#current_windSpeed");
+var currentUvindexEl = $("#current_uvindex");
 var cityInput;
 var savedData;
 
@@ -54,6 +58,10 @@ const showData = (cityDetails) => {
   //change values for city name, date, temp, humidity, wind speed, and uv index
   cityNameEl.text(cityInput);
   currentDateEl.text(formattedDate);
+  currentTempEl.text(cityDetails.current.temp + "°");
+  currentHumidityEl.text(cityDetails.current.humidity + "%");
+  currentWindSpeedEl.text(cityDetails.current.wind_speed + "mph");
+  currentUvindexEl.text(cityDetails.current.uvi);
 };
 const init = () => {
   //get local storage items and save to variable

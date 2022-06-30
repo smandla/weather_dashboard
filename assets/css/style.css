@@ -6,7 +6,14 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
-
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0;
+  margin: 0;
+}
 header {
   /* color: #1f3753; */
   color: white;
@@ -18,13 +25,14 @@ header {
   align-items: center;
   justify-content: center;
   left: 0;
-  border-bottom: 1px solid #1f3753;
+  border-bottom: 2px solid #1f3753;
 }
 aside {
   position: fixed;
   top: 120px;
   width: 15%;
   height: 85%;
+  border-right: 2px solid #1f3753;
 }
 main {
   position: fixed;
@@ -81,4 +89,29 @@ main {
   flex-direction: row;
   align-items: center;
   /* background-color: red; */
+}
+.icon_section section div {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: right; */
+  width: 100%;
+  margin: 0 auto;
+  /* padding: 1rem; */
+  align-items: center;
+  /* justify-content: flex; */
+  /* background-color: green; */
+}
+.icon_section section h4 {
+  width: 100%;
+  margin: 0 auto;
+  justify-content: center;
+  margin: 0.5rem 1rem;
+  text-align: center;
+  border-radius: 8px;
+  /* padding: 10px; */
+  font-size: 1.5rem;
+  /* display: flex; */
+  /* background-color: red; */
+  /* overflow: hidden; */
+  white-space: nowrap;
 }
