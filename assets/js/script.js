@@ -61,7 +61,23 @@ const showData = (cityDetails) => {
   currentTempEl.text(cityDetails.current.temp + "°");
   currentHumidityEl.text(cityDetails.current.humidity + "%");
   currentWindSpeedEl.text(cityDetails.current.wind_speed + "mph");
-  currentUvindexEl.text(cityDetails.current.uvi);
+  var uvi = cityDetails.current.uvi;
+  currentUvindexEl.text(uvi);
+  if (uvi <= 2) {
+    currentUvindexEl.css("background-color", "green");
+  }
+  if (uvi > 2 && uvi <= 5) {
+    currentUvindexEl.css("background-color", "yellow");
+  }
+  if (uvi > 5 && uvi <= 7) {
+    currentUvindexEl.css("background-color", "orange");
+  }
+  if (uvi > 7 && uvi <= 10) {
+    currentUvindexEl.css("background-color", "red");
+  }
+  if (uvi > 10) {
+    currentUvindexEl.css("background-color", "purple");
+  }
 };
 const init = () => {
   //get local storage items and save to variable
