@@ -83,21 +83,26 @@ const showData = (cityDetails) => {
   if (uvi > 10) {
     currentUvindexEl.css("background-color", "purple");
   }
-  showForecastDetails(cityDetails.daily.slice(0, 5));
+  showForecastDetails(cityDetails.daily.slice(1, 6));
 };
 
 const showForecastDetails = (data) => {
   console.log(data);
+  forecastCardsEl.text("");
   for (let i = 0; i < data.length; i++) {
     let sectionEl = $("<section>").addClass("card").appendTo(forecastCardsEl);
     let date = moment.unix(data[i].dt).toDate();
 
-    console.log(date);
+    // console.log(date);
     let h4El = $("<h4>")
       .text(moment(date).format("MMMM Do, YYYY"))
       .appendTo(sectionEl);
-    let h5El = $("<h5>").text("temp:").appendTo(sectionEl);
-    let h5_1El = $("<h5>").text("humidity: ").appendTo(sectionEl);
+    let h5El = $("<h5>")
+      .text("temp: " + data[i].temp.day + "°")
+      .appendTo(sectionEl);
+    let h5_1El = $("<h5>")
+      .text("humidity: " + data[i].humidity + "%")
+      .appendTo(sectionEl);
   }
 };
 const init = () => {
