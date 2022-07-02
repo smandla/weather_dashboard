@@ -137,12 +137,14 @@ const showHistory = () => {
       .attr("id", "history-" + i)
       .on("click", function (e) {
         e.preventDefault();
-        val = e.target.innerHTML;
+        cityInput = e.target.innerHTML;
+        console.log(cityInput);
         getData();
       });
     li.appendTo(cityHistoryListEl);
   }
 };
+
 const init = () => {
   //get local storage items and save to variable
   //show search history from the local storage items
