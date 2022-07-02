@@ -12,6 +12,7 @@ var currentHumidityEl = $("#current_humidity");
 var currentWindSpeedEl = $("#current_windSpeed");
 var currentUvindexEl = $("#current_uvindex");
 var cityHistoryListEl = $("#city_history_list");
+var currenticonDescriptionEl = $("#icon_description");
 
 var cityInput;
 var savedData;
@@ -78,7 +79,8 @@ const showData = (cityDetails) => {
       cityDetails.current.weather[0].icon +
       "@2x.png"
   );
-  console.log(cityDetails.current.weather);
+  currenticonDescriptionEl.text(cityDetails.current.weather[0].description);
+  // console.log(cityDetails.current.weather);
   currentTempEl.text(cityDetails.current.temp + "°");
   currentHumidityEl.text(cityDetails.current.humidity + "%");
   currentWindSpeedEl.text(cityDetails.current.wind_speed + "mph");
@@ -138,7 +140,7 @@ const showHistory = () => {
       .on("click", function (e) {
         e.preventDefault();
         cityInput = e.target.innerHTML;
-        console.log(cityInput);
+        // console.log(val);
         getData();
       });
     li.appendTo(cityHistoryListEl);

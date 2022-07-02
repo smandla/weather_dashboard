@@ -84,6 +84,21 @@ main {
   border-radius: 8px;
   /* margin: 10px; */
 }
+.current_title_section {
+  background: none;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  /* text-align: center; */
+}
+.current_title_section span:last-child {
+  /* background-color: green; */
+  /* align-items: center; */
+  float: right;
+  text-align: right;
+  /* margin: 0 auto; */
+}
 .forecast_details {
   background: rgba(255, 255, 255, 0.1);
   color: white;
@@ -164,11 +179,10 @@ main {
   align-items: center;
   border-radius: 8px;
 }
-ul {
-  /* padding-right: 0; */
-  /* width: 100%; */
-  /* background-color: green; */
-  /* margin: 0 auto; */
+.current_details {
+  /* background-color: red; */
+  /* margin-left: 10px; */
+  padding: 10px;
 }
 .li {
   position: relative;
