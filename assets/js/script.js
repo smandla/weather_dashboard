@@ -6,12 +6,16 @@ var forecastDetailsEl = $("#forecast_details");
 var forecastCardsEl = $("#forecast_cards");
 var cityNameEl = $("#city_name");
 var currentDateEl = $("#current_date");
+var currentIconEl = $("#current_icon");
 var currentTempEl = $("#current_temp");
 var currentHumidityEl = $("#current_humidity");
 var currentWindSpeedEl = $("#current_windSpeed");
 var currentUvindexEl = $("#current_uvindex");
+var cityHistoryListEl = $("#city_history_list");
+
 var cityInput;
 var savedData;
+var val = "";
 var cityHistory = [];
 //moment formatting code
 var formattedDate = moment().format("dddd, MMMM DD, YYYY");
@@ -24,9 +28,11 @@ formEl.on("submit", function (e) {
     return;
   }
   cityInput = searchInput;
+  val = cityInput;
   cityHistory.push(cityInput);
+  console.log(cityHistory);
   searchInputEl.val("");
-  localStorage.setItem("city_history", JSON.stringify(cityHistory));
+  localStorage.setItem("cityHistory", JSON.stringify(cityHistory));
 
   getData();
 });
@@ -63,6 +69,13 @@ const showData = (cityDetails) => {
   //change values for city name, date, temp, humidity, wind speed, and uv index
   cityNameEl.text(cityInput);
   currentDateEl.text(formattedDate);
+  currentIconEl.attr(
+    "src",
+    "http://openweathermap.org/img/wn/" +
+      cityDetails.current.weather[0].icon +
+      "@2x.png"
+  );
+  console.log(cityDetails.current.weather);
   currentTempEl.text(cityDetails.current.temp + "°");
   currentHumidityEl.text(cityDetails.current.humidity + "%");
   currentWindSpeedEl.text(cityDetails.current.wind_speed + "mph");
@@ -97,6 +110,11 @@ const showForecastDetails = (data) => {
     let h4El = $("<h4>")
       .text(moment(date).format("MMMM Do, YYYY"))
       .appendTo(sectionEl);
+    let imageEl = $("<img>");
+    let icon = data[i].weather[0].icon;
+    imageEl.attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
+    imageEl.attr("style", "filter: grayscale(100%);");
+    imageEl.appendTo(sectionEl);
     let h5El = $("<h5>")
       .text("temp: " + data[i].temp.day + "°")
       .appendTo(sectionEl);
@@ -105,10 +123,34 @@ const showForecastDetails = (data) => {
       .appendTo(sectionEl);
   }
 };
+const showHistory = () => {
+  console.log(cityHistory);
+  for (let i = 0; i < cityHistory.length; i++) {
+    var city = cityHistory[i];
+    console.log(city);
+    var li = $("<li>")
+      .addClass("li")
+      .text(city)
+      .attr("id", "history-" + i)
+      .on("click", function (e) {
+        e.preventDefault();
+        val = e.target.innerHTML;
+        getData();
+      });
+    li.appendTo(cityHistoryListEl);
+  }
+};
 const init = () => {
   //get local storage items and save to variable
   //show search history from the local storage items
+  var storedData = JSON.parse(localStorage.getItem("cityHistory"));
+  if (storedData !== null) {
+    cityHistory = storedData;
+  }
+  console.log(storedData);
+  showHistory();
   showDetailsEl.hide();
   forecastDetailsEl.hide();
 };
 init();
+// localStorage.removeItem("cityHistory");
