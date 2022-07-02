@@ -29,11 +29,14 @@ formEl.on("submit", function (e) {
   }
   cityInput = searchInput;
   val = cityInput;
-  cityHistory.push(cityInput);
+  if (!cityHistory.includes(cityInput)) {
+    cityHistory.push(cityInput);
+  }
+
   console.log(cityHistory);
   searchInputEl.val("");
   localStorage.setItem("cityHistory", JSON.stringify(cityHistory));
-
+  // showHistory();
   getData();
 });
 
