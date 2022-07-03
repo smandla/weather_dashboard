@@ -33,7 +33,7 @@ formEl.on("submit", function (e) {
   if (!cityHistory.includes(cityInput)) {
     cityHistory.push(cityInput);
   }
-
+  showHistory(cityInput, cityHistory.indexOf(cityInput));
   console.log(cityHistory);
   searchInputEl.val("");
   localStorage.setItem("cityHistory", JSON.stringify(cityHistory));
@@ -128,23 +128,22 @@ const showForecastDetails = (data) => {
       .appendTo(sectionEl);
   }
 };
-const showHistory = () => {
+const showHistory = (city, i) => {
   console.log(cityHistory);
-  for (let i = 0; i < cityHistory.length; i++) {
-    var city = cityHistory[i];
-    console.log(city);
-    var li = $("<li>")
-      .addClass("li")
-      .text(city)
-      .attr("id", "history-" + i)
-      .on("click", function (e) {
-        e.preventDefault();
-        cityInput = e.target.innerHTML;
-        // console.log(val);
-        getData();
-      });
-    li.appendTo(cityHistoryListEl);
-  }
+
+  var city = cityHistory[i];
+  console.log(city, i);
+  var li = $("<li>")
+    .addClass("li")
+    .text(city)
+    .attr("id", "history-" + i)
+    .on("click", function (e) {
+      e.preventDefault();
+      cityInput = e.target.innerHTML;
+      // console.log(val);
+      getData();
+    });
+  li.appendTo(cityHistoryListEl);
 };
 
 const init = () => {
@@ -155,7 +154,10 @@ const init = () => {
     cityHistory = storedData;
   }
   console.log(storedData);
-  showHistory();
+  for (let i = 0; i < cityHistory.length; i++) {
+    console.log("here");
+    showHistory(cityHistory[i], i);
+  }
   showDetailsEl.hide();
   forecastDetailsEl.hide();
 };
