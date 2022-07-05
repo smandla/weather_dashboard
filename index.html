@@ -10,6 +10,10 @@
     />
     <link
       rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
@@ -20,8 +24,8 @@
     <header>
       <h1>Weather Dashboard</h1>
     </header>
-    <div class="main">
-      <aside>
+    <div class="wrapper d-flex" id="body">
+      <div class="sidebar">
         <section id="search_history">
           <form id="form">
             <input
@@ -31,64 +35,71 @@
               class="search_input"
             />
           </form>
-          <ul id="city_history_list" class="city_history_list"></ul>
+
+          <details>
+            <ul id="city_history_list" class="city_history_list"></ul>
+            <summary>
+              <i class="fas fa-chevron-down to-open"></i
+              ><i class="fas fa-chevron-up to-close"></i>
+            </summary>
+          </details>
         </section>
-      </aside>
-      <main>
-        <section id="cityDetails" class="cityDetails">
-          <span id="initial_stmt">
-            <h3>
-              Enter a city in the Search bar or choose one from search history
-            </h3>
-          </span>
-          <span id="show_details">
-            <div class="current_title_section">
-              <span>
-                <h2 id="city_name"></h2>
-                <h3 id="current_date"></h3>
-              </span>
-              <span>
-                <img style="filter: grayscale(100%)" id="current_icon" />
-                <h5 id="icon_description"></h5>
-              </span>
-            </div>
-            <div class="icon_section">
-              <section>
-                <i class="fas fa-2x fa-thermometer-half"></i>
-                <div class="current_details">
-                  <h5>temperature</h5>
-                  <h4 id="current_temp"></h4>
-                </div>
-              </section>
-              <section>
-                <i class="fas fa-2x fa-tint"></i>
-                <div class="current_details">
-                  <h5>humidity</h5>
-                  <h4 id="current_humidity"></h4>
-                </div>
-              </section>
-              <section>
-                <i class="fas fa-2x fa-wind"></i>
-                <div class="current_details">
-                  <h5>wind speed</h5>
-                  <h4 id="current_windSpeed"></h4>
-                </div>
-              </section>
-              <section>
-                <i class="fas fa-2x fa-sun"></i>
-                <div class="current_details">
-                  <h5>uv index</h5>
-                  <h4 id="current_uvindex"></h4>
-                </div>
-              </section>
-            </div>
-          </span>
-        </section>
-        <section id="forecast_details" class="forecast_details">
-          <h2>Five Day Forecast</h2>
-          <div id="forecast_cards" class="cards"></div>
-        </section>
-      </main>
+      </div>
+    </div>
+    <div class="main">
+      <section id="cityDetails" class="cityDetails">
+        <span id="initial_stmt">
+          <h3>
+            Enter a city in the Search bar or choose one from search history
+          </h3>
+        </span>
+        <span id="show_details">
+          <div class="current_title_section">
+            <span>
+              <h2 id="city_name">df</h2>
+              <h3 id="current_date">df</h3>
+            </span>
+            <span>
+              <img style="filter: grayscale(100%)" id="current_icon" />
+              <h5 id="icon_description"></h5>
+            </span>
+          </div>
+          <div class="icon_section">
+            <section>
+              <i class="fas fa-2x fa-thermometer-half"></i>
+              <div class="current_details">
+                <h5>temperature</h5>
+                <h4 id="current_temp">ew</h4>
+              </div>
+            </section>
+            <section>
+              <i class="fas fa-2x fa-tint"></i>
+              <div class="current_details">
+                <h5>humidity</h5>
+                <h4 id="current_humidity"></h4>
+              </div>
+            </section>
+            <section>
+              <i class="fas fa-2x fa-wind"></i>
+              <div class="current_details">
+                <h5>wind speed</h5>
+                <h4 id="current_windSpeed"></h4>
+              </div>
+            </section>
+            <section>
+              <i class="fas fa-2x fa-sun"></i>
+              <div class="current_details">
+                <h5>uv index</h5>
+                <h4 id="current_uvindex"></h4>
+              </div>
+            </section>
+          </div>
+        </span>
+      </section>
+      <section id="forecast_details" class="forecast_details">
+        <h2>Five Day Forecast</h2>
+        <div id="forecast_cards" class="cards"></div>
+      </section>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

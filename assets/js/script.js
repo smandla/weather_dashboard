@@ -19,7 +19,7 @@ var savedData;
 var val = "";
 var cityHistory = [];
 //moment formatting code
-var formattedDate = moment().format("dddd, MMMM DD, YYYY");
+var formattedDate = moment().format("dddd, MMMM Do, YYYY");
 
 formEl.on("submit", function (e) {
   e.preventDefault();
@@ -134,7 +134,6 @@ const showHistory = (city, i) => {
   var city = cityHistory[i];
   console.log(city, i);
   var li = $("<li>")
-    .addClass("li")
     .text(city)
     .attr("id", "history-" + i)
     .on("click", function (e) {
@@ -158,6 +157,7 @@ const init = () => {
     console.log("here");
     showHistory(cityHistory[i], i);
   }
+
   showDetailsEl.hide();
   forecastDetailsEl.hide();
 };
