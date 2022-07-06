@@ -117,7 +117,10 @@ const showForecastDetails = (data) => {
       .appendTo(sectionEl);
     let imageEl = $("<img>");
     let icon = data[i].weather[0].icon;
-    imageEl.attr("src", "http://openweathermap.org/img/wn/" + icon + "@2x.png");
+    imageEl.attr(
+      "src",
+      "https://openweathermap.org/img/wn/" + icon + "@2x.png"
+    );
     imageEl.attr("style", "filter: grayscale(100%);");
     imageEl.appendTo(sectionEl);
     let h5El = $("<h5>")

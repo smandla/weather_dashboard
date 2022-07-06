@@ -24,9 +24,9 @@
     <header>
       <h1>Weather Dashboard</h1>
     </header>
-    <div class="wrapper d-flex" id="body">
+    <div class="wrapper" id="body">
       <div class="sidebar">
-        <section id="search_history">
+        <section id="search_history" class="search_history">
           <form id="form">
             <input
               type="search"
@@ -39,8 +39,8 @@
           <details>
             <ul id="city_history_list" class="city_history_list"></ul>
             <summary>
-              <i class="fas fa-chevron-down to-open"></i
-              ><i class="fas fa-chevron-up to-close"></i>
+              <i class="fas fa-chevron-down to-open"> </i>
+              <i class="fas fa-chevron-up to-close"></i>
             </summary>
           </details>
         </section>
@@ -48,7 +48,7 @@
     </div>
     <div class="main">
       <section id="cityDetails" class="cityDetails">
-        <span id="initial_stmt">
+        <span id="initial_stmt" class="initial_stmt">
           <h3>
             Enter a city in the Search bar or choose one from search history
           </h3>
