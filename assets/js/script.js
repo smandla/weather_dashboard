@@ -188,3 +188,4 @@ const init = () => {
 };
 //call init() function
 init();
+// localStorage.removeItem("cityHistory");
